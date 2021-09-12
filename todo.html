@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            
+        }
+        #mm{
+       background-color: black;
+       height: 100vh;
+        }
+        ol {
+            position: relative;
+            left: 10.5vw;
+        }
+        ol li{
+         border-radius: 15px;
+         background-color:yellowgreen;
+         padding: 20px;
+         margin-top: 5px;
+         width: 72vw;
+         font-size: 20px;
+         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+        .fa{
+            float: right;
+            border-radius: 15px;
+             padding: 2px; 
+            margin-top: 5px;
+            background-color: white;
+            /* text-align: center; */
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            cursor: context-menu;
+            
+        }
+        input{
+            /* border-color:white; */
+            /* border-width: 10px; */
+            width: 75vw;
+            height: 55px;
+            border-radius: 10px;
+            font-size: 20px;
+             /* padding: 2px;  */
+            /* margin-top: 5px; */
+        }
+        .btn1{
+            border-radius: 7px;
+            background-color: white;
+            height: 40px;
+            
+        }
+    </style>
+    <script src="jquery.js"></script>
+    <script>
+        
+        $(document).ready(function () {
+
+            $("input").on('keypress', function (e) {
+                if (e.which == 13) {
+                    var x = $("input").val()
+                    if (x != " ") {
+                        $("ol").append("<li >" + x + '   <i class="fa">' + 'delete'+ '</i>' + "</li>")
+                        $("input").val(' ')
+                    }
+                    else {
+                        alert("enter your task")
+                    }
+                }
+            });
+        
+
+            $(".btn1").click(function () {
+                var x = $("input").val()
+                if (x != " ") {
+                    
+                    $("ol").append('<li> ' + x + '   <i class="fa">' + 'delete'+ '</i>'  + "</li>")
+                    $("input").val(' ')
+                }
+                else {
+                    alert("enter your task")
+                }
+            })
+
+            $(document).on('click', '.fa', function () {
+                $(this).parent().fadeOut();
+            });
+            
+
+        })
+
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="text-align:center" id="mm">
+        <div id="demo">
+            <h1 style="font-size:80px; color:white;" >To Do List</h1>
+        </div>
+        <input type="text" placeholder="what is your task?" id="intext">
+        <button class="btn1"><b>Add Task</b></button>
+
+
+        <ol style="color:purple">
+
+        </ol>
+    </div>
+</body>
+
+</html>
